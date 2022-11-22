@@ -26,5 +26,11 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     // use findByFirstName(final String firstName) if case-sensitive
     // check out other query methods also from the below doc https://docs.spring.io/spring-data/jpa/docs/current/reference/html/
+    // separate jpql queries can also be made
+    // or sql queries can also be run using the native = true option
+
+
+    // @Query(value = "SELECT * FROM USERS WHERE EMAIL_ADDRESS = ?1", nativeQuery = true)
+    // User findByEmailAddress(String emailAddress);
 
 }
