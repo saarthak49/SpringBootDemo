@@ -21,5 +21,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
      * @param firstName the name on which parameter to fetch
      * @return students matching criteria
      */
-    List<Student> findByFirstNameIgnoreCase(final String firstName);
+    List<Student> findByFirstNameIgnoreCase(final String firstName);   // NOTE - this could have been Student also, i.e
+    // only a single student will be returned
+
+    // use findByFirstName(final String firstName) if case-sensitive
 }
