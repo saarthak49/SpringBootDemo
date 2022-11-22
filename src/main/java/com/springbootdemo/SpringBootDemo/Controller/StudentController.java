@@ -41,6 +41,17 @@ public class StudentController {
         return studentService.getStudent(id);
     }
 
+    /**
+     * get students with the firstName as firstName
+     *
+     * @param firstName the search criteria
+     * @return list of students satisfying criteria
+     */
+    @GetMapping("/student/name/{firstName}")
+    public List<Student> getStudent(@PathVariable("firstName") final String firstName) {
+        return studentService.getStudent(firstName);
+    }
+
 
     /**
      * save student entity in db

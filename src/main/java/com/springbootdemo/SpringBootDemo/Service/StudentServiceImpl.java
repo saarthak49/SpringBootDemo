@@ -62,6 +62,17 @@ public class StudentServiceImpl implements StudentService {
         return optionalStudent.get();
     }
 
+    /**
+     * Get students based on name
+     *
+     * @param firstName the firstName of students you want to fetch
+     * @return List of students having the firstName as firstname
+     */
+    @Override
+    public List<Student> getStudent(final String firstName) {
+        return studentRepository.findByFirstNameIgnoreCase(firstName);
+    }
+
 
     /**
      * delete student with provided id
