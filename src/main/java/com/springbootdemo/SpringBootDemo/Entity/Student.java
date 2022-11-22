@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
+/**
+ * Student entity for persistence purposes in the db
+ */
 @Entity
 @Getter
 @Setter
@@ -21,7 +25,7 @@ public class Student {
     //providing here change to snake case
     //camel case -> snake case
     //eg. firstName -> first_name
-    //we know case insensitive db
+    //we know case-insensitive db
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,10 +34,6 @@ public class Student {
     private String lastName;
     private String address;
     private Long marks;
-
-
-
-
 
 
 }

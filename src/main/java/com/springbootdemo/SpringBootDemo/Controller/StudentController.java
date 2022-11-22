@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+/**
+ * Controller layer for Student entity
+ */
 @RestController
 public class StudentController {
 
@@ -15,40 +19,58 @@ public class StudentController {
     private StudentService studentService;
 
 
+    /**
+     * Get all  students from db
+     *
+     * @return list of all students from db
+     */
     @GetMapping("/students")
-    public List<Student> getStudents()
-    {
+    public List<Student> getStudents() {
         return studentService.getAllStudents();
     }
 
 
-    // get single student
-
+    /**
+     * Get student with given id from db
+     *
+     * @param id the id of the student to be found
+     * @return student with the given id
+     */
     @GetMapping("/student/{id}")
-    public Student getStudent(@PathVariable("id") Long id)
-    {
+    public Student getStudent(@PathVariable("id") final Long id) {
         return studentService.getStudent(id);
     }
 
 
+    /**
+     * save student entity in db
+     *
+     * @param student the student request body to be persisted in the db
+     * @return persisted object
+     */
     @PostMapping("/student")
-    public Student saveStudent(@RequestBody Student student)
-    {
+    public Student saveStudent(@RequestBody final Student student) {
         return studentService.saveStudent(student);
     }
 
 
-    // update a student
+    @PutMapping("/student/{id}")
+    public Student updateStudent(@PathVariable final Long id, @RequestBody final Student student) {
+        return studentService.updateStudent(id, student);
+    }
 
 
-    // delete a particular student
+    /**
+     * delete the student record from db
+     *
+     * @param id the id of the student record to be deleted from db
+     * @return the deletion status
+     */
     @DeleteMapping("/student/{id}")
-    public String deleteStudent(@PathVariable("id") Long id)
-    {
+    public String deleteStudent(@PathVariable("id") final Long id) {
         studentService.deleteStudent(id);
         return "Successfully deleted";
     }
-
 
 
 }
