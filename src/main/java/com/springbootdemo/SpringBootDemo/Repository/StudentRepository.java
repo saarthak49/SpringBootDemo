@@ -25,4 +25,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     // only a single student will be returned
 
     // use findByFirstName(final String firstName) if case-sensitive
+    // check out other query methods also from the below doc https://docs.spring.io/spring-data/jpa/docs/current/reference/html/
+
 }
